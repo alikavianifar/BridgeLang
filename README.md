@@ -26,14 +26,11 @@
 
 ## 🎯 Purpose
 
-- This project was built as a portfolio to showcase:
+This project was built as a portfolio to showcase:
 
 - Django project architecture (multi-settings pattern)
-
 - Secure authentication and form handling
-
 - Docker-based deployment workflow
-
 - Clean, maintainable, and extensible code structure
 
 ---
@@ -282,3 +279,15 @@ This project follows Django security best practices:
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+---
+
+## 👤 Author
+
+**Ali Kaviani Far**
+
+- 💼 LinkedIn: [linkedin.com/in/alikavianifar](https://linkedin.com/in/alikavianifar)
+- 📧 Email: alikavianifarbit@email.com
+
+---
+
+<p align="center">© 2026 Ali Kavianifar · <a href="https://github.com/alikavianifar">GitHub</a></p>
