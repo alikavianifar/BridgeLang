@@ -40,14 +40,10 @@
 
 ## 📸 Screenshots
 
-> _Add screenshots here_
+![Homepage](static/img/Screenshot1.png)
+![Blog List](static/img/Screenshot2.png)
+![Post Detail](static/img/Screenshot3.png)
 
-```
-BridgeLang/BridgeLang/static/img/Screenshot1.png
-BridgeLang/BridgeLang/static/img/Screenshot2.png
-BridgeLang/BridgeLang/static/img/Screenshot3.png
-
-```
 
 ---
 
