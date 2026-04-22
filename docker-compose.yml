@@ -1,0 +1,63 @@
+# ============================================
+# BridgeLang — Docker Compose
+# ============================================
+# Usage:
+#   Development:  docker compose up --build
+#   Production:   docker compose -f docker-compose.yml up -d
+# ============================================
+
+services:
+  # ── PostgreSQL Database ──────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bridgelang
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${PGDB_PASS:-bridgelang_dev_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── Django Application ───────────────────
+  web:
+    build: .
+    restart: unless-stopped
+    command: >
+      sh -c "python manage.py makemigrations --noinput &&
+             python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn CoreFolder.wsgi:application --bind 0.0.0.0:8000 --workers 3"
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=CoreFolder.settings.production
+    env_file:
+      - .env.example
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ── smtp4dev (Development email server) ──
+  mailserver:
+    image: rnwood/smtp4dev:v3
+    restart: unless-stopped
+    ports:
+      - "5000:80" # Web UI
+      - "25:25" # SMTP
+    profiles:
+      - dev
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

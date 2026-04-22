@@ -1,0 +1,79 @@
+{% extends 'accounts/accounts-base.html' %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+<section id="contact" class="contact section">
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Sign Up</h2>
+
+            <!-- Signup Form -->
+            <form action="{% url 'Accounts:signup' %}" method="post" role="form" class="django-contact-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.username.errors }}
+                    <input type="text" id="username" name="username" class="form-control" required autofocus autocomplete="off"
+                    placeholder="Username" onfocus="this.placeholder = 'Username'" onblur="this.placeholder = 'Enter username'">
+                </div>
+                <div class="form-group">
+                    {{ form.email.errors }}
+                    <input type="email" id="email" name="email" class="form-control" required
+                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                    placeholder="Email" onfocus="this.placeholder = 'Email'" onblur="this.placeholder = 'Enter email'">
+                </div>
+                <div class="form-group">
+                    {{ form.password1.errors }}
+                    <input type="password" id="password" name="password1" class="form-control" required autocomplete="off"
+                    placeholder="Password" onfocus="this.placeholder = 'Password'" onblur="this.placeholder = 'Enter password'"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <i class="bi bi-eye-fill toggle-password" onclick="togglePasswordVisibilitySignup()"></i>
+                </div>
+
+                <div>
+                    <ul class="password-requirements-list">
+                        <li class="requirement-non-repetitive">Your username and password must not be similar!</li>
+                        <li class="requirement-uppercase">At least one uppercase letter (A-Z)</li>
+                        <li class="requirement-lowercase">At least one lowercase letter (a-z)</li>
+                        <li class="requirement-number">At least one number (0-9)</li>
+                        <li class="requirement-special">At least one special character (@, #, $, etc.)</li>
+                        <li class="requirement-length">At least 8 characters</li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    {{ form.password2.errors }}
+                    <input type="password" id="confirm_password" name="password2" class="form-control" required autocomplete="off"
+                    placeholder="Confirm password" onfocus="this.placeholder = 'Confirm password'" onblur="this.placeholder = 'Enter confirm password'">
+                </div>
+                <div class="form-group">
+                    {{ form.captcha.errors }}
+                    {{ form.captcha }}
+                </div>
+                <button style="width: 100%;" type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+
+            <div class="signup-link">
+                Already have an account? <a href="{% url 'Accounts:login' %}">Login</a>
+            </div><br>
+            <!-- Social Signup Buttons -->
+            <div class="social-login">
+                <a href="#" class="google">
+                    <i class="bi bi-google"></i>
+                </a>
+                <a href="#" class="facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="apple">
+                    <i class="bi bi-apple"></i>
+                </a>
+                <a href="#" class="microsoft">
+                    <i class="bi bi-microsoft"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

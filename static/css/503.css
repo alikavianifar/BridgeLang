@@ -1,0 +1,130 @@
+.custom-body {
+    text-align: center;
+    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    position: relative;
+    min-height: 100vh;
+}
+.custom-heading {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #34495e;
+}
+.custom-article {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    max-width: 700px;
+    margin-top: 70px;
+}
+.custom-input-email {
+    width: 67%;
+    padding: 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.custom-input-email:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.custom-button {
+    background-color: #b80006;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+}
+.custom-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.custom-paragraph {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-top: 20px;
+}
+.custom-span {
+    font-weight: 500;
+}
+
+.custom-login-link {
+    background-color: #e67e22;
+    color: #000000a3;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+}
+.custom-login-link:hover {
+    text-decoration: none;
+    color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- TIMER ----- */
+
+.custom-countdown {
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.custom-timer-cta {
+    font-size: 14px;
+}
+
+.custom-countdown ul {
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.custom-countdown ul li {
+    background: #036800;
+    border-radius: 100%;
+    display: inline-block;
+    height: 100px;
+    list-style: none;
+    position: relative;
+    text-align: center;
+    margin-right: 15px;
+    width: 100px;
+}
+
+.custom-time-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-time {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.custom-time-txt {
+    display: block;
+    font-size: 12px;
+}

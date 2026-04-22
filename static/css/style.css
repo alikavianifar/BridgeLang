@@ -1,0 +1,50 @@
+#textInput{
+    margin-top: 22px;
+    width: 800px;
+    min-width: 400px;
+    box-sizing: 560.667*41;
+    border: 1px solid #dfe1e5;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+    background-image: url('../img/Search.ico');
+    background-position: 15px 15px;
+    background-size:15px;
+    background-repeat: no-repeat;
+    padding: 12px 32px 12px 45px;
+    line-height: 22px;
+}
+
+.submitInput{
+    background-color: #ffffff;
+    border: 1px solid #dfe1e5;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 14px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 49px;
+    min-width: 54px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: 93.396*34.667;
+}
+
+.submitInput:hover{
+    border: 1px solid #dfe1e5;
+    background-color: #C8102E;
+	border: 1px solid #C8102E;
+	color: #ffffff;
+}
+
+::placeholder { /* Edge 12 -18 */
+	color: #485664;
+  }
+
+#textInput:hover{
+    box-shadow: 0 0 4px #cecfd6;
+}
+
+#textInput:focus{
+    outline: none;
+}

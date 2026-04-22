@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog-tags %} 
+{% block content %}
+
+{% include 'main/start.html' %}
+
+{% include 'main/courses.html' %}
+
+{% include 'main/how-to-learn-english.html' %}
+
+{% recent_blog_posts %}
+
+{% include 'main/faq.html' %}
+
+{% include 'main/about.html' %}
+
+{% include 'main/contact.html' %}
+
+{% endblock %}

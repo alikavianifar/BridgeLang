@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Lessons Hero Section -->
+<section id="lessons-hero" class="hero section dark-background">
+    <div class="container text-center" data-aos="fade-up">
+        <h2>Language Courses</h2>
+        <p>Start your language learning journey with our structured courses</p>
+    </div>
+</section>
+
+<!-- Courses List -->
+<section id="courses" class="section">
+    <div class="container">
+        <div class="row gy-4">
+            {% for item in courses_with_progress %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 shadow-sm">
+                    {% if item.course.image %}
+                    <img src="{{ item.course.image.url }}" class="card-img-top" alt="{{ item.course.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2">{{ item.course.get_level_display }}</span>
+                        <h5 class="card-title">{{ item.course.title }}</h5>
+                        <p class="card-text">{{ item.course.description|truncatewords:25 }}</p>
+                        <p class="text-muted"><small>{{ item.total_lessons }} lessons</small></p>
+
+                        <!-- Progress Bar -->
+                        <div class="progress mb-3" style="height: 8px;">
+                            <div class="progress-bar bg-success" role="progressbar"
+                                 style="width: {{ item.progress }}%"
+                                 aria-valuenow="{{ item.progress }}"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                        <small class="text-muted">{{ item.progress }}% complete ({{ item.completed_lessons }}/{{ item.total_lessons }})</small>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="{% url 'Lessons:course_detail' pk=item.course.pk %}" class="btn btn-primary w-100">
+                            {% if item.progress > 0 %}Continue{% else %}Start Course{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No courses available yet. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

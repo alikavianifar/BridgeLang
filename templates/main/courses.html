@@ -1,0 +1,67 @@
+{% load static %}
+<!-- Courses Section -->
+<section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div style="padding: 35px 0px 45px 0px;" class="container section-title" data-aos="fade-up">
+      <h2>Courses</h2>
+    </div><!-- End Section Title -->
+  
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+      <div class="row gy-5">
+  
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-item">
+            <div class="img">
+              <img src="{% static 'img/services-1.png' %}" style="padding-bottom: 45px;" class="img-fluid" alt="">
+            </div>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+              <a href="{% url 'Lessons:lessons' %}" class="stretched-link">
+                <h3>Lessons</h3>
+              </a>
+              <p>Step by step training for all language levels with practical examples.</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+  
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-item">
+            <div class="img">
+              <img src="{% static 'img/services-3.png' %}" style="padding-bottom: 25px;" class="img-fluid" alt="">
+            </div>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-robot"></i>
+              </div>
+              <a href="https://chatgpt.com/" class="stretched-link">
+                <h3>AI Speaking</h3>
+              </a>
+              <p>This teaching method can be very effective in improving your speaking.</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+  
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+          <div class="service-item">
+            <div class="img">
+              <img src="{% static 'img/services-4.png' %}" style="padding-bottom: 80px;" class="img-fluid" alt="">
+            </div>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-vector-pen"></i>
+              </div>
+              <a href="service-details.html" class="stretched-link">
+                <h3>AI Writing</h3>
+              </a>
+              <p>Measure your mastery by practicing writing with artificial intelligence.</p>
+              <a href="https://chatgpt.com/" class="stretched-link"></a>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+      </div>
+    </div>
+  </section><!-- /Services Section -->

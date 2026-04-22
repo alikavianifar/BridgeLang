@@ -1,0 +1,60 @@
+{% extends 'accounts/accounts-base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<section id="contact" class="contact section">
+    <div class="container login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <!-- Login Form -->
+            <form action="{% url 'Accounts:login' %}" method="post" role="form" class="django-contact-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username or Email" 
+                    onfocus="this.placeholder = 'Username or Email'" onblur="this.placeholder = 'Enter your username or Email'" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"  required
+                    onfocus="this.placeholder = 'Password'" onblur="this.placeholder = 'Enter your password'">
+                    <i class="bi bi-eye-fill toggle-password"
+                        onclick="togglePasswordVisibilityLogin()"></i>
+                </div>
+                
+                <div style="margin-bottom: 10px;" class="form-actions">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember" checked>
+                        <label for="remember">Remember me</label>
+                    </div>
+
+                </div>
+                <input type="hidden" name="next" value="{{ next }}">
+                <div class="form-group">{{ form.captcha }}</div>
+                <button style="width: 100%;" type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <div class="signup-link">
+                Forgot <a href="{% url 'password_reset' %}">password?</a><br>
+                Don’t have an account? <a href="{% url 'Accounts:signup' %}">Sign up</a>
+            </div><br>
+            <!-- Social Signup Buttons -->
+            <div class="social-login">
+                <a href="#" class="google">
+                    <i class="bi bi-google"></i>
+                </a>
+                <a href="#" class="facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="apple">
+                    <i class="bi bi-apple"></i>
+                </a>
+                <a href="#" class="microsoft">
+                    <i class="bi bi-microsoft"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,144 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.147);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-box .form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.login-box .form-group .toggle-password {
+    position: absolute;
+    top: 44%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.login-box .social-login {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+.login-box .social-login a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.login-box .social-login a.google {
+    background-color: #EA4335;
+}
+
+.login-box .social-login a.facebook {
+    background-color: #3b5998;
+}
+
+.login-box .social-login a.apple {
+    background-color: #000000;
+}
+
+.login-box .social-login a.microsoft {
+    background-color: #00A1F1;
+}
+
+.login-box .signup-link {
+    margin-top: 15px;
+}
+
+.signup-link a{
+    color: #C8102E;
+    text-decoration: none;
+}
+
+
+/* Password requirements box */
+.password-requirements-list {
+    display: none;
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 14px;
+}
+
+.password-requirements-list li {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.password-requirements-list li.valid {
+    color: green;
+}
+
+.password-requirements-list li.invalid {
+    color: red;
+}
+
+.password-requirements-list {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.5s ease-out; 
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+}
+
+.password-requirements-list.show {
+    max-height: 200px;
+}
+
+/*--------------------------------------------------------------
+# Messeges alert
+--------------------------------------------------------------*/
+#alert-div{
+    position: fixed;
+    z-index: 9999;
+  }
+
+.alert {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px;
+    transition: transform 0.5s linear;
+    transform: translateX(0);
+  }
+  
+.alert.fade-out {
+    transition-delay: 4s;
+    transform: translateX(-100%);
+  }
+
+
+
+.errorlist {
+    color: red;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+}

@@ -1,0 +1,108 @@
+{% load static %}
+{% load humanize %}
+
+<!-- Blog Comments Section -->
+<section id="blog-comments" class="blog-comments section">
+
+    <div class="container">
+
+        <h4 class="comments-count">{{ comments|length }} Comment{{ comments|length|pluralize:'s'}}</h4>
+
+        {% for comment in comments %}
+        <div id="comment-1" class="comment">
+            <div class="d-flex">
+                <div>
+                    <div class="d-flex">
+                        <div class="comment-img"><img src="{% static 'img/blog/anonymous.png' %}" alt=""></div>
+                        <div>
+                            <h5 style="padding: 5px 0px 8px 0px;"><a href="">{{comment.name}}</a></h5>
+                            <time datetime="2020-01-01">{{comment.created_date|naturaltime}}</time>
+                        </div>
+                    </div><br>
+                    <div>
+                        <p>{{comment.message}}</p>
+                        <h5 style="direction: rtl;"><a href="#" class="reply"><i class="bi bi-reply-fill"></i>Reply</a></h5>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 100%; border: 1px solid #ababab;">
+
+            <!-- <div id="comment-reply-1" class="comment comment-reply">
+              <div class="d-flex">
+                <div class="comment-img"><img src="{% static 'img/blog/comments-3.jpg' %}" alt=""></div>
+                <div>
+                  <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a>
+                  </h5>
+                  <time datetime="2020-01-01">01 Jan,2022</time>
+                  <p>
+                    Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia
+                    mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat
+                    maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+
+                    Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum.
+                    Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum.
+                    Expedita et dignissimos distinctio laborum minima fugiat.
+
+                    Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem
+                    quisquam vero rerum neque.
+                  </p>
+                </div>
+              </div>
+
+            </div> -->
+            <!-- End comment reply #1-->
+            {% empty %}
+            <h5>No comments yet.</h5>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</section><!-- /Blog Comments Section -->
+
+<!-- Comment Form Section -->
+<section id="comment-form" class="comment-form section">
+    <div class="container">
+
+        <form action="{% url 'BlogFolder:detail' id=post.id %}" method="post">
+            <h4>Post Comment</h4>
+            {% csrf_token %}
+            {% if request.user.is_authenticated %}
+            <input type="hidden" name="name" value="{{request.user.first_name}}">
+            <input type="hidden" name="email" value="{{request.user.email}}">
+            {% else %}
+            <p>Your email address will not be published. Required fields are marked * </p>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your name" 
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'">
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="email" class="form-control" name="email" id="email" required="" placeholder="Email address" 
+                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" 
+                    onblur="this.placeholder = 'Enter email address'">
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject (Option)" 
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject (Option)'">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <textarea class="form-control" name="message" placeholder="Comment" onfocus="this.placeholder = ''" 
+                    onblur="this.placeholder = 'Enter Comment'" required=""></textarea>
+                </div>
+            </div>
+
+            <input type="hidden" name="post" value="{{post.id}}">
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Post Comment</button>
+            </div>
+
+        </form>
+    </div>
+</section><!-- /Comment Form Section -->

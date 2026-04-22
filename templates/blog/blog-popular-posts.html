@@ -1,0 +1,20 @@
+{% load static %}
+{% load humanize %}
+{% load blog-tags %}
+
+<!-- Recent Posts Widget -->
+<div class="recent-posts-widget widget-item">
+
+    <h3 class="widget-title">Popular Posts</h3>
+
+    {% for post in posts %}
+        <div class="post-item">
+            <img src="{{post.image.url}}" alt="" class="flex-shrink-0"  style="width: 80px; height: 44px;">
+            <div>
+                <h4><a href="{% url 'BlogFolder:detail' id=post.id %}">{{post.title}}</a></h4>
+                <time>{{post.published_date|naturaltime}}</time>
+            </div>
+        </div><!-- End recent post item-->
+    {% endfor %}
+
+</div><!--/Recent Posts Widget -->

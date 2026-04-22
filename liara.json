@@ -1,0 +1,22 @@
+{
+    "platform": "django",
+    "django": {
+      "pythonVersion": "3.12.7",
+      "collectStatic": true,
+      "compileMessages": false,
+      "modifySettings": true,
+      "timezone": "Asia/Tehran"
+      
+    },
+    "app": "bridgelang",
+    "disks": [
+      {
+        "name": "static",
+        "mountTo": "static"
+      },
+      {
+        "name": "media",
+        "mountTo": "media"
+      }
+    ]
+  }
