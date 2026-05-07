@@ -1,5 +1,5 @@
 <h1 align="center">
-  📝 BridgeLang Blog
+  Django Blog
 </h1>
 
 <p align="center">
